@@ -1,5 +1,5 @@
 module Weditor
   module Loader
-    VERSION = "0.1.0"
+    VERSION = "0.1.11"
   end
 end

@@ -3,16 +3,22 @@ RSpec.describe Weditor::Loader do
     expect(Weditor::Loader::VERSION).not_to be 'nil'
   end
 
-  describe "Template.load" do
+  describe "Template" do
+    
+    describe ".parser" do
 
-    before(:each) do
-      path = "#{File.dirname __FILE__}/templates/test.html"
-      @template = Weditor::Loader::Template.load(path)
-    end
-
-    it "屬性檢查" do
-      expect(@template.xpath("//div[@id='od']/@data-twedr").text).to eq('文稿')
+      before(:each) do
+        path = "#{File.dirname __FILE__}/templates/test.html"
+        
+        # path = "/spec/weditor/templates/test.html"
+        @template = Weditor::Loader::Template.parser(File.read(path))
+      end
+            
+      it "屬性檢查" do
+        expect(@template.xpath("//div[@id='od']/@data-twedr").text).to eq('文稿')
+      end 
     end 
+
   end  
 
 

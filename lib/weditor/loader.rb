@@ -5,8 +5,8 @@ require 'open-uri'
 module Weditor
   module Loader
     class Template
-      def self.load (path)
-        Nokogiri::HTML(File.open(path), nil, 'UTF-8')
+      def self.parser (string)
+        Nokogiri::HTML(string, nil, 'UTF-8')
       end
     end   
   end  
